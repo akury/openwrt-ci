@@ -32,5 +32,5 @@ fi
 
 if [ -f "$MTWIFI_SH" ]; then
 	# 修改WIFI名称
-	sed -i "s/ssid='.*'/ssid='$WRT_SSID'/g" $MTWIFI_SH
+	sed -i "s/ssid=\".*\"/ssid=\"$WRT_SSID\"/g" $MTWIFI_SH
 fi
