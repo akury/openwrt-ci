@@ -1,0 +1,47 @@
+#CI项目
+name: Testing Build
+
+#CI计划
+on:
+  #手动编译
+  workflow_dispatch:
+    inputs:
+      CONFIG:
+        required: true
+        type: string
+      SOURCE:
+        required: true
+        type: string
+      BRANCH:
+        default: 'main'
+        required: true
+        type: string
+      PACKAGE:
+        required: false
+        type: string
+      TEST:
+        description: '仅输出配置文件，不编译固件。'
+        default: 'true'
+        required: true
+        type: boolean
+
+#CI权限
+permissions: write-all
+
+#CI任务
+jobs:
+  config:
+    name: ${{inputs.CONFIG}}
+    uses: ./.github/workflows/wrt-core.yml
+    with:
+      WRT_CONFIG: ${{inputs.CONFIG}}
+      WRT_NAME: WRT
+      WRT_SSID: WRT
+      WRT_WORD: 12345678
+      WRT_IP: 192.168.1.1
+      WRT_PW: 无
+      WRT_REPO: https://github.com/${{inputs.SOURCE}}.git
+      WRT_BRANCH: ${{inputs.BRANCH}}
+      WRT_SOURCE: ${{inputs.SOURCE}}
+      WRT_PACKAGE: ${{inputs.PACKAGE}}
+      WRT_TEST: ${{inputs.TEST}}
