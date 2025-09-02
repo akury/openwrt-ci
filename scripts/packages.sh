@@ -95,7 +95,10 @@ chmod +x $NEW_PKG_DIR/luci-app-athena-led/root/etc/init.d/athena_led $NEW_PKG_DI
 
 GO_VERSION_MAJOR_MINOR=$(grep -Po "GO_VERSION_MAJOR_MINOR:=\K.*" ../feeds/packages/lang/golang/golang/Makefile)
 if dpkg --compare-versions "$GO_VERSION_MAJOR_MINOR" lt 1.24; then
-	REPLACE_PACKAGE "golang" "sbwml/packages_lang_golang" "24.x" "name"
+	# golang 必须在feeds/packages/lang/golang目录，否则可能编译失败
+	echo "update golang version to 1.24"
+	rm -rf ../feeds/packages/lang/golang
+	git clone --depth=1 --single-branch --branch 24.x https://github.com/sbwml/packages_lang_golang ../feeds/packages/lang/golang
 fi
 
 # 更新软件包版本
