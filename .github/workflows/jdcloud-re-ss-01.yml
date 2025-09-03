@@ -31,7 +31,7 @@ jobs:
       # 默认登录IPd地
       WRT_IP: 192.168.1.1
       # 默认登录密码，仅作提示，修改无用
-      WRT_PW: password
+      WRT_PW: 无
       # 源码链接
       WRT_REPO: https://github.com/LiBwrt/openwrt-6.x.git
       # 源码分支
