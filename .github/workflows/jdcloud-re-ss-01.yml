@@ -35,7 +35,7 @@ jobs:
       # 源码链接
       WRT_REPO: https://github.com/LiBwrt/openwrt-6.x.git
       # 源码分支
-      WRT_BRANCH: k6.12-nss
+      WRT_BRANCH: main-nss
       # 源码名称
       WRT_SOURCE: LiBwrt/openwrt-6.x
       # 插件调整
