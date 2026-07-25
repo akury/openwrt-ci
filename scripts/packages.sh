@@ -94,10 +94,10 @@ REPLACE_PACKAGE "luci-app-athena-led" "NONGFAH/luci-app-athena-led" "main"
 chmod +x $NEW_PKG_DIR/luci-app-athena-led/root/etc/init.d/athena_led $NEW_PKG_DIR/luci-app-athena-led/root/usr/sbin/athena-led
 
 GO_VERSION_MAJOR_MINOR=$(grep -Po "GO_VERSION_MAJOR_MINOR:=\K.*" ../feeds/packages/lang/golang/golang/Makefile)
-if [[ -n $GO_VERSION_MAJOR_MINOR ]] && dpkg --compare-versions "$GO_VERSION_MAJOR_MINOR" lt 1.24; then
-	echo "update golang version from $GO_VERSION_MAJOR_MINOR to 1.24"
+if [[ -n $GO_VERSION_MAJOR_MINOR ]] && dpkg --compare-versions "$GO_VERSION_MAJOR_MINOR" lt 1.25; then
+	echo "update golang version from $GO_VERSION_MAJOR_MINOR to 1.25"
 	rm -rf ../feeds/packages/lang/golang
-	git clone --depth=1 --single-branch --branch 24.x https://github.com/sbwml/packages_lang_golang ../feeds/packages/lang/golang
+	git clone --depth=1 --single-branch --branch 25.x https://github.com/sbwml/packages_lang_golang ../feeds/packages/lang/golang
 fi
 
 # 更新软件包版本
