@@ -33,11 +33,11 @@ jobs:
       # 默认登录密码，仅作提示，修改无用
       WRT_PW: 无
       # 源码链接
-      WRT_REPO: https://github.com/LiBwrt/openwrt-6.x.git
+      WRT_REPO: https://github.com/LiBwrt/LibWrt
       # 源码分支
-      WRT_BRANCH: main-nss
+      WRT_BRANCH: 25.12-nss
       # 源码名称
-      WRT_SOURCE: LiBwrt/openwrt-6.x
+      WRT_SOURCE: LiBwrt/LibWrt
       # 插件调整
       WRT_PACKAGE: ${{inputs.PACKAGE}}
       # 仅输出配置文件
