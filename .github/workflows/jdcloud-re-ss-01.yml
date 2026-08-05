@@ -5,6 +5,11 @@ on:
   # 手动编译
   workflow_dispatch:
     inputs:
+      BRANCH:
+        description: '源码分支'
+        default: '25.12-nss'
+        required: true
+        type: string
       PACKAGE:
         description: '手动调整插件包，多个请用\n符号隔开。'
         required: false
@@ -35,7 +40,7 @@ jobs:
       # 源码链接
       WRT_REPO: https://github.com/LiBwrt/LibWrt
       # 源码分支
-      WRT_BRANCH: 25.12-nss
+      WRT_BRANCH: ${{inputs.BRANCH}}
       # 源码名称
       WRT_SOURCE: LiBwrt/LibWrt
       # 插件调整
